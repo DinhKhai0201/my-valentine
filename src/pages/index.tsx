@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { sendNotification } from "@/utils/telegram";
 import dayjs from "dayjs";
+import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import "react-clock/dist/Clock.css";
@@ -8,7 +9,6 @@ import DateTimePicker from "react-datetime-picker";
 import "react-datetime-picker/dist/DateTimePicker.css";
 import useSound from "use-sound";
 import Button from "./Button";
-import { useRouter } from 'next/router'
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -59,8 +59,9 @@ const AFTERS = [
 ];
 
 function App() {
-  const parsed = useRouter()
+  const parsed = useRouter();
   const [continueSound] = useSound("continue.mp3");
+  const [clickSound] = useSound("click.wav");
   const [x, setx] = useState(52);
   const [y, sety] = useState(55);
   const form = useRef();
@@ -99,7 +100,14 @@ function App() {
             <img className="w-[200px]" src="capy.gif" alt="capy" />
           </div>
           <div className="flex items-center justify-center pt-[100px]">
-            <Button onClick={() => setStep(STEPS.DATE)}>
+            <Button
+              onClick={() => {
+                clickSound && clickSound();
+                setTimeout(() => {
+                  setStep(STEPS.DATE);
+                }, 300);
+              }}
+            >
               <p className="font-bold">YES!</p>
             </Button>
             <Button onMouseOver={mouseOver} style={noStyle}>
@@ -119,7 +127,12 @@ function App() {
             <DateTimePicker onChange={onChange} value={value} />
           </div>
           <div className="flex items-center justify-center pt-[100px]">
-            <Button onClick={() => setStep(STEPS.FOOD)}>
+            <Button
+              onClick={() => {
+                clickSound && clickSound();
+                setStep(STEPS.FOOD);
+              }}
+            >
               <p className="font-bold">Continue</p>
             </Button>
           </div>
@@ -154,7 +167,12 @@ function App() {
             </div>
           </div>
           <div className="flex items-center justify-center pt-[100px]">
-            <Button onClick={() => food && setStep(STEPS.AFTER)}>
+            <Button
+              onClick={() => {
+                clickSound && clickSound();
+                if (food) setStep(STEPS.AFTER);
+              }}
+            >
               <p className="font-bold">Continue</p>
             </Button>
           </div>
@@ -193,12 +211,15 @@ function App() {
               disabled={!after}
               onClick={async () => {
                 try {
+                  continueSound && continueSound();
                   setStep(STEPS.OK);
                   await sendNotification(
-                    `${parsed.query?.u ? parsed.query.u: "New user"} at ${dayjs(value as unknown as string).format("HH:mm DD/MM/YYYY"
+                    `${
+                      parsed.query?.u ? parsed.query.u : "New user"
+                    } at ${dayjs(value as unknown as string).format(
+                      "HH:mm DD/MM/YYYY"
                     )}, They are having ${food}, then they will go to ${after}`
                   );
-                  continueSound && continueSound();
                 } catch (error) {}
               }}
             >
@@ -211,8 +232,8 @@ function App() {
     case STEPS.OK: {
       return (
         <div className="py-10 h-[100vh] bg-[#e2a1e6]">
-          <h1 className="text-center font-bold text-[38px] text-[red]">
-            Thank for be my Valentine 🌹
+          <h1 className="text-center font-bold text-[38px] text-[white]">
+            Thank for be my Valentine ❤️
           </h1>
           <div className="flex items-center justify-center mt-[10px]">
             <div className="max-w-xs ">
@@ -226,8 +247,8 @@ function App() {
               </p>
             </div>
           </div>
-          <div className="flex items-center justify-center">
-            <img className="w-[200px]" src="capy2.gif" alt="capy" />
+          <div className="flex items-center justify-center pt-2">
+            <img className="w-[200px] rounded" src="capy2.gif" alt="capy" />
           </div>
           <div className="flex items-center justify-center pt-[100px]">
             <Button onClick={() => continueSound && continueSound()}>
