@@ -69,9 +69,9 @@ const AFTERS = [
 
 function App() {
   const parsed = useRouter();
-  const [continueSound] = useSound("continue.mp3");
-  const [clickSound] = useSound("click.wav");
-  const [song] = useSound("song.mp3");
+  const [continueSound] = useSound("continue.mp3", { playbackRate : 0.75});
+  const [clickSound] = useSound("click.wav", { playbackRate : 0.75});
+  const [song] = useSound("song.mp3", { playbackRate : 0.75});
   const [x, setx] = useState(52);
   const [y, sety] = useState(55);
   const form = useRef();
