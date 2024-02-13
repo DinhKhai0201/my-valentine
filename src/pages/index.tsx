@@ -1,11 +1,13 @@
+// @ts-nocheck
+import { sendNotification } from "@/utils/telegram";
 import dayjs from "dayjs";
 import { useRef, useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import "react-clock/dist/Clock.css";
 import DateTimePicker from "react-datetime-picker";
 import "react-datetime-picker/dist/DateTimePicker.css";
+import useSound from "use-sound";
 import Button from "./Button";
-import useSound from 'use-sound'; 
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -175,7 +177,7 @@ function App() {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <Button  onClick={() => food &&  setStep(STEPS.AFTER)}>
+            <Button onClick={() => food && setStep(STEPS.AFTER)}>
               <p className="font-bold">Continue</p>
             </Button>
           </div>
@@ -191,14 +193,14 @@ function App() {
           <div className="flex items-center justify-center ">
             <div className="grid grid-cols-2  max-w-xs gap-10">
               {AFTERS.map((item, index) => {
-                  const selected = item.title === after;
+                const selected = item.title === after;
                 return (
                   <div
-                  className={`w-full cursor-pointer ${
-                    selected
-                      ? "rounded bg-[#ff9494]  border-[3px] border-solid border-[#ff9494]"
-                      : ""
-                  }`}
+                    className={`w-full cursor-pointer ${
+                      selected
+                        ? "rounded bg-[#ff9494]  border-[3px] border-solid border-[#ff9494]"
+                        : ""
+                    }`}
                     key={index}
                     onClick={() => onSelectActivity(item.title)}
                   >
@@ -210,7 +212,21 @@ function App() {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <Button onClick={() => setStep(STEPS.OK)}>
+            <Button
+              onClick={async () => {
+                try {
+                  setStep(STEPS.OK);
+                  await sendNotification(
+                    `New user at{" "}
+                    ${dayjs(value as unknown as string).format(
+                      "HH:mm DD/MM/YYYY"
+                    )}.
+                    They are having ${food}, then they will go to ${after}`
+                  );
+                  continueSound && continueSound();
+                } catch (error) {}
+              }}
+            >
               <p className="font-bold">Continue</p>
             </Button>
           </div>
@@ -233,7 +249,10 @@ function App() {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <Button onClick={()=>continueSound && continueSound()}>
+            <img className="w-[200px]" src="capy2.gif" alt="capy" />
+          </div>
+          <div className="flex items-center justify-center pt-[100px]">
+            <Button onClick={() => continueSound && continueSound()}>
               <p className="font-bold">Happy</p>
             </Button>
           </div>
