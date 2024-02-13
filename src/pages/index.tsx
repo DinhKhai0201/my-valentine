@@ -62,6 +62,7 @@ function App() {
   const parsed = useRouter();
   const [continueSound] = useSound("continue.mp3");
   const [clickSound] = useSound("click.wav");
+  const [song] = useSound("song.mp3");
   const [x, setx] = useState(52);
   const [y, sety] = useState(55);
   const form = useRef();
@@ -105,6 +106,7 @@ function App() {
             <Button
               onClick={() => {
                 clickSound && clickSound();
+                song && song();
                 setTimeout(() => {
                   setStep(STEPS.DATE);
                 }, 300);
@@ -123,10 +125,13 @@ function App() {
       return (
         <div className="py-10 h-[100vh] bg-[#95bfa7] shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[38px] text-[#d5de95]">
-            Which date can we meet? 🌹
+            Which date can we meet? song
           </h1>
           <div className="flex items-center justify-center pt-[50px]">
             <DateTimePicker onChange={onChange} value={value} />
+          </div>
+          <div className="flex items-center justify-center pt-[20px]">
+            <img className="w-[200px]" src="run.gif" alt="capy" />
           </div>
           <div className="flex items-center justify-center pt-[100px]">
             <Button
@@ -145,7 +150,7 @@ function App() {
       return (
         <div className="py-10 h-[100vh] bg-[#d5de95] shadow-[inset_0px_0px_0px_10px_#a6bfc2]">
           <h1 className="text-center font-bold text-[38px] text-[black]">
-            Which type of food do u like? 🌹
+            Which type of food do u like? 🍔
           </h1>
           <div className="flex items-center justify-center pt-[50px] ">
             <div className="grid grid-cols-2  max-w-xs gap-10">
@@ -185,7 +190,7 @@ function App() {
       return (
         <div className="py-10 h-[100vh] bg-[#c095cf] shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[38px] text-[#f5d6ba]">
-            What will we do after? 🌹
+            What will we do after? ✋
           </h1>
           <div className="flex items-center justify-center ">
             <div className="grid grid-cols-2  max-w-xs gap-10">
