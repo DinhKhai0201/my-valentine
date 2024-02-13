@@ -101,7 +101,7 @@ function App() {
             Will you be my Valentine? 🌹
           </h1>
           <div className="flex items-center justify-center">
-            <img className="w-[200px]" src="capy.gif" alt="capy" />
+            <img className="w-[200px] rounded" src="capy.gif" alt="capy" />
           </div>
           <div className="flex items-center justify-center pt-[100px]">
             <Button
@@ -132,7 +132,7 @@ function App() {
             <DateTimePicker onChange={onChange} value={value} />
           </div>
           <div className="flex items-center justify-center pt-[20px]">
-            <img className="w-[200px]" src="run.gif" alt="capy" />
+            <img className="w-[200px] rounded" src="run.gif" alt="capy" />
           </div>
           <div className="flex items-center justify-center pt-[100px]">
             <Button
