@@ -249,7 +249,7 @@ function App() {
       return (
         <div className="py-10 h-[100vh] bg-[#e2a1e6] shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[38px] text-[white] px-4">
-            Thank for be my Valentine ❤️
+            Thank for being my Valentine ❤️
           </h1>
           <div className="flex items-center justify-center mt-[10px]">
             <div className="max-w-xs ">
