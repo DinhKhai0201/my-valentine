@@ -8,6 +8,7 @@ import DateTimePicker from "react-datetime-picker";
 import "react-datetime-picker/dist/DateTimePicker.css";
 import useSound from "use-sound";
 import Button from "./Button";
+import { useRouter } from 'next/router'
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -58,6 +59,7 @@ const AFTERS = [
 ];
 
 function App() {
+  const parsed = useRouter()
   const [continueSound] = useSound("continue.mp3");
   const [x, setx] = useState(52);
   const [y, sety] = useState(55);
@@ -79,22 +81,6 @@ function App() {
     position: "absolute",
   };
 
-  /* code for email alert sent when she says yes */
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-
-  //   emailjs
-  //     .sendForm("11111", "template_w4y121f", form.current, "KI7bceeNiZsp0c9Kp")
-  //     .then(
-  //       (result) => {
-  //         console.log(result.text);
-  //       },
-  //       (error) => {
-  //         console.log(error.text);
-  //       }
-  //     );
-  //   e.target.reset();
-  // };
   const onSelectFood = (foodName: string) => {
     setFood(foodName);
   };
@@ -112,19 +98,10 @@ function App() {
           <div className="flex items-center justify-center">
             <img className="w-[200px]" src="capy.gif" alt="capy" />
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center pt-[100px]">
             <Button onClick={() => setStep(STEPS.DATE)}>
               <p className="font-bold">YES!</p>
             </Button>
-            {/* <form onSubmit={sendEmail} ref={form}>
-          <button 
-            style={yesStyle}
-            type="submit"
-            onClick={clickedYes}
-          >
-            YES!
-          </button> 
-        </form> */}
             <Button onMouseOver={mouseOver} style={noStyle}>
               <p className="font-bold">no</p>
             </Button>
@@ -138,10 +115,10 @@ function App() {
           <h1 className="text-center font-bold text-[38px] text-[#d5de95]">
             Which date can we meet? 🌹
           </h1>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center pt-[50px]">
             <DateTimePicker onChange={onChange} value={value} />
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center pt-[100px]">
             <Button onClick={() => setStep(STEPS.FOOD)}>
               <p className="font-bold">Continue</p>
             </Button>
@@ -155,7 +132,7 @@ function App() {
           <h1 className="text-center font-bold text-[38px] text-[black]">
             Which type of food do u like? 🌹
           </h1>
-          <div className="flex items-center justify-center ">
+          <div className="flex items-center justify-center pt-[50px] ">
             <div className="grid grid-cols-2  max-w-xs gap-10">
               {FOODS.map((item, index) => {
                 const selected = item.title === food;
@@ -176,7 +153,7 @@ function App() {
               })}
             </div>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center pt-[100px]">
             <Button onClick={() => food && setStep(STEPS.AFTER)}>
               <p className="font-bold">Continue</p>
             </Button>
@@ -211,17 +188,15 @@ function App() {
               })}
             </div>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center pt-[100px]">
             <Button
+              disabled={!after}
               onClick={async () => {
                 try {
                   setStep(STEPS.OK);
                   await sendNotification(
-                    `New user at{" "}
-                    ${dayjs(value as unknown as string).format(
-                      "HH:mm DD/MM/YYYY"
-                    )}.
-                    They are having ${food}, then they will go to ${after}`
+                    `${parsed.query?.u ? parsed.query.u: "New user"} at ${dayjs(value as unknown as string).format("HH:mm DD/MM/YYYY"
+                    )}, They are having ${food}, then they will go to ${after}`
                   );
                   continueSound && continueSound();
                 } catch (error) {}
@@ -243,8 +218,11 @@ function App() {
             <div className="max-w-xs ">
               <p className="text-[28px] text-center">
                 So at{" "}
-                {dayjs(value as unknown as string).format("HH:mm DD/MM/YYYY")}.
-                We are having {food}, then we will go to {after}
+                <span className="font-black">
+                  {dayjs(value as unknown as string).format("HH:mm DD/MM/YYYY")}
+                </span>
+                , We are having <span className="font-black">{food}</span>, then
+                we will go to <span className="font-black">{after}</span>
               </p>
             </div>
           </div>
