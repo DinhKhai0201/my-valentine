@@ -129,7 +129,7 @@ function App() {
             Which date can we meet? 😎
           </h1>
           <div className="flex items-center justify-center pt-[50px]">
-            <DateTimePicker onChange={onChange} value={value} />
+            <DateTimePicker  onChange={onChange} value={value} />
           </div>
           <div className="flex items-center justify-center pt-[20px]">
             <img className="w-[200px] rounded" src="run.gif" alt="capy" />
@@ -168,7 +168,7 @@ function App() {
                     onClick={() => onSelectFood(item.title)}
                   >
                     <img
-                      className="w-[130px] h-[100px]"
+                      className="w-[130px] h-[100px] rounded"
                       src={item.src}
                       alt={item.title}
                     />
@@ -212,7 +212,7 @@ function App() {
                     onClick={() => onSelectActivity(item.title)}
                   >
                     <img
-                      className="w-[130px] h-[100px]"
+                      className="w-[130px] h-[100px] rounded"
                       src={item.src}
                       alt={item.title}
                     />
