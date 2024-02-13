@@ -6,6 +6,7 @@
 
 body {
   background: #a6bfc2;
+  box-shadow:inset 0px 0px 0px 10px wheat;
 }
 
 @layer utilities {

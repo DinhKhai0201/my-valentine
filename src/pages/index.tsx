@@ -83,16 +83,18 @@ function App() {
   };
 
   const onSelectFood = (foodName: string) => {
+    clickSound && clickSound();
     setFood(foodName);
   };
   const onSelectActivity = (activityName: string) => {
+    clickSound && clickSound();
     setAfter(activityName);
   };
 
   switch (step) {
     case STEPS.CONFIRM: {
       return (
-        <div className="py-10">
+        <div className="py-10 h-[100vh]">
           <h1 className="text-center font-bold text-[38px] text-[#de324e]">
             Will you be my Valentine? 🌹
           </h1>
@@ -119,7 +121,7 @@ function App() {
     }
     case STEPS.DATE: {
       return (
-        <div className="py-10 h-[100vh] bg-[#95bfa7]">
+        <div className="py-10 h-[100vh] bg-[#95bfa7] shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[38px] text-[#d5de95]">
             Which date can we meet? 🌹
           </h1>
@@ -141,7 +143,7 @@ function App() {
     }
     case STEPS.FOOD: {
       return (
-        <div className="py-10 h-[100vh] bg-[#d5de95]">
+        <div className="py-10 h-[100vh] bg-[#d5de95] shadow-[inset_0px_0px_0px_10px_#a6bfc2]">
           <h1 className="text-center font-bold text-[38px] text-[black]">
             Which type of food do u like? 🌹
           </h1>
@@ -181,7 +183,7 @@ function App() {
     }
     case STEPS.AFTER: {
       return (
-        <div className="py-10 h-[100vh] bg-[#c095cf]">
+        <div className="py-10 h-[100vh] bg-[#c095cf] shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[38px] text-[#f5d6ba]">
             What will we do after? 🌹
           </h1>
@@ -231,7 +233,7 @@ function App() {
     }
     case STEPS.OK: {
       return (
-        <div className="py-10 h-[100vh] bg-[#e2a1e6]">
+        <div className="py-10 h-[100vh] bg-[#e2a1e6] shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[38px] text-[white]">
             Thank for be my Valentine ❤️
           </h1>
