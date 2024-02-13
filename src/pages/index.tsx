@@ -129,7 +129,7 @@ function App() {
             Which date can we meet? 😎
           </h1>
           <div className="flex items-center justify-center pt-[50px]">
-            <DateTimePicker  onChange={onChange} value={value} />
+            <DateTimePicker onChange={onChange} value={value} />
           </div>
           <div className="flex items-center justify-center pt-[20px]">
             <img className="w-[200px] rounded" src="run.gif" alt="capy" />
@@ -248,12 +248,12 @@ function App() {
     case STEPS.OK: {
       return (
         <div className="py-10 h-[100vh] bg-[#e2a1e6] shadow-[inset_0px_0px_0px_10px_wheat]">
-          <h1 className="text-center font-bold text-[38px] text-[white] px-4">
+          <h1 className="text-center font-bold text-[28px] text-[white] px-4">
             Thank for being my Valentine ❤️
           </h1>
           <div className="flex items-center justify-center mt-[10px]">
             <div className="max-w-xs ">
-              <p className="text-[28px] text-center">
+              <p className="text-[20px] text-center">
                 So at{" "}
                 <span className="font-black">
                   {dayjs(value as unknown as string).format("HH:mm DD/MM/YYYY")}
@@ -272,6 +272,7 @@ function App() {
             </Button>
           </div>
           <Confetti
+            recycle={false}
             width={window?.width}
             height={window?.height}
           />
