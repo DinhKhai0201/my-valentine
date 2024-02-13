@@ -124,7 +124,7 @@ function App() {
     }
     case STEPS.DATE: {
       return (
-        <div className="py-10 h-[100vh] bg-[#95bfa7] shadow-[inset_0px_0px_0px_10px_wheat]">
+        <div className="py-10 h-[100vh] shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[38px] text-[#d5de95] px-4">
             Which date can we meet? 😎
           </h1>
@@ -149,7 +149,7 @@ function App() {
     }
     case STEPS.FOOD: {
       return (
-        <div className="py-10 h-[100vh] bg-[#d5de95] shadow-[inset_0px_0px_0px_10px_#a6bfc2]">
+        <div className="py-10 h-[100vh]  shadow-[inset_0px_0px_0px_10px_#a6bfc2]">
           <h1 className="text-center font-bold text-[38px] text-[black] px-4">
             Which type of food do u like? 🍔
           </h1>
@@ -193,7 +193,7 @@ function App() {
     }
     case STEPS.AFTER: {
       return (
-        <div className="py-10 h-[100vh] bg-[#c095cf] shadow-[inset_0px_0px_0px_10px_wheat]">
+        <div className="py-10 h-[100vh]  shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[38px] text-[#f5d6ba] px-4">
             What will we do after? ✋
           </h1>
@@ -247,7 +247,7 @@ function App() {
     }
     case STEPS.OK: {
       return (
-        <div className="py-10 h-[100vh] bg-[#e2a1e6] shadow-[inset_0px_0px_0px_10px_wheat]">
+        <div className="py-10 h-[100vh] shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[28px] text-[white] px-4">
             Thank for being my Valentine ❤️
           </h1>
@@ -266,11 +266,11 @@ function App() {
           <div className="flex items-center justify-center pt-2">
             <img className="w-[200px] rounded" src="capy2.gif" alt="capy" />
           </div>
-          <div className="flex items-center justify-center pt-[100px]">
+          {/* <div className="flex items-center justify-center pt-[100px]">
             <Button onClick={() => continueSound && continueSound()}>
               <p className="font-bold">Happy</p>
             </Button>
-          </div>
+          </div> */}
           <Confetti
             recycle={false}
             width={window?.width}
