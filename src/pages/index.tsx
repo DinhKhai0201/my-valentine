@@ -125,7 +125,7 @@ function App() {
       return (
         <div className="py-10 h-[100vh] bg-[#95bfa7] shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[38px] text-[#d5de95]">
-            Which date can we meet? song
+            Which date can we meet? 😎
           </h1>
           <div className="flex items-center justify-center pt-[50px]">
             <DateTimePicker onChange={onChange} value={value} />
@@ -166,7 +166,7 @@ function App() {
                     key={index}
                     onClick={() => onSelectFood(item.title)}
                   >
-                    <img className="w-full" src={item.src} alt={item.title} />
+                    <img className="w-[130px] h-[100px]" src={item.src} alt={item.title} />
                     <p className="text-center">{item.title}</p>
                   </div>
                 );
@@ -206,7 +206,7 @@ function App() {
                     key={index}
                     onClick={() => onSelectActivity(item.title)}
                   >
-                    <img className="w-full" src={item.src} alt={item.title} />
+                    <img className="w-[130px] h-[100px]" src={item.src} alt={item.title} />
                     <p className="text-center">{item.title}</p>
                   </div>
                 );
