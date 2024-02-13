@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import "react-clock/dist/Clock.css";
+import Confetti from "react-confetti";
 import DateTimePicker from "react-datetime-picker";
 import "react-datetime-picker/dist/DateTimePicker.css";
 import useSound from "use-sound";
@@ -166,7 +167,11 @@ function App() {
                     key={index}
                     onClick={() => onSelectFood(item.title)}
                   >
-                    <img className="w-[130px] h-[100px]" src={item.src} alt={item.title} />
+                    <img
+                      className="w-[130px] h-[100px]"
+                      src={item.src}
+                      alt={item.title}
+                    />
                     <p className="text-center">{item.title}</p>
                   </div>
                 );
@@ -206,7 +211,11 @@ function App() {
                     key={index}
                     onClick={() => onSelectActivity(item.title)}
                   >
-                    <img className="w-[130px] h-[100px]" src={item.src} alt={item.title} />
+                    <img
+                      className="w-[130px] h-[100px]"
+                      src={item.src}
+                      alt={item.title}
+                    />
                     <p className="text-center">{item.title}</p>
                   </div>
                 );
@@ -262,6 +271,10 @@ function App() {
               <p className="font-bold">Happy</p>
             </Button>
           </div>
+          <Confetti
+            width={window?.width}
+            height={window?.height}
+          />
         </div>
       );
     }
