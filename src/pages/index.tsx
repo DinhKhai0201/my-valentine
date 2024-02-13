@@ -57,6 +57,14 @@ const AFTERS = [
     title: "Draw",
     src: "draw.jpeg",
   },
+  {
+    title: "Cinema",
+    src: "cinema.jpeg",
+  },
+  {
+    title: "Walk",
+    src: "walk.jpeg",
+  },
 ];
 
 function App() {
@@ -96,7 +104,7 @@ function App() {
   switch (step) {
     case STEPS.CONFIRM: {
       return (
-        <div className="py-10 h-[100vh]">
+        <div className="py-10 min-h-[100vh]">
           <h1 className="text-center font-bold text-[38px] text-[white]">
             Will you be my Valentine? 🌹
           </h1>
@@ -124,7 +132,7 @@ function App() {
     }
     case STEPS.DATE: {
       return (
-        <div className="py-10 h-[100vh] shadow-[inset_0px_0px_0px_10px_wheat]">
+        <div className="py-10 min-h-[100vh] shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[38px] text-[white] px-4">
             Which date can we meet? 😎
           </h1>
@@ -149,7 +157,7 @@ function App() {
     }
     case STEPS.FOOD: {
       return (
-        <div className="py-10 h-[100vh]  shadow-[inset_0px_0px_0px_10px_#a6bfc2]">
+        <div className="py-10 min-h-[100vh]  shadow-[inset_0px_0px_0px_10px_#a6bfc2]">
           <h1 className="text-center font-bold text-[38px] text-[white] px-4">
             Which type of food do u like? 🍔
           </h1>
@@ -193,7 +201,7 @@ function App() {
     }
     case STEPS.AFTER: {
       return (
-        <div className="py-10 h-[100vh]  shadow-[inset_0px_0px_0px_10px_wheat]">
+        <div className="py-10 min-h-[100vh]  shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[38px] text-[white] px-4">
             What will we do after? ✋
           </h1>
@@ -247,7 +255,7 @@ function App() {
     }
     case STEPS.OK: {
       return (
-        <div className="py-10 h-[100vh] shadow-[inset_0px_0px_0px_10px_wheat]">
+        <div className="py-10 min-h-[100vh] shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[28px] text-[white] px-4">
             Thank for being my Valentine ❤️
           </h1>
