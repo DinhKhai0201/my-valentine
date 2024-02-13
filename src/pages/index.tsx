@@ -27,7 +27,7 @@ const FOODS = [
     src: "garan.jpeg",
   },
   {
-    title: "Hot noddle",
+    title: "Hot noodle",
     src: "mycay.jpeg",
   },
   {
