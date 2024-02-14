@@ -157,7 +157,7 @@ function App() {
     }
     case STEPS.FOOD: {
       return (
-        <div className="py-10 min-h-[100vh]  shadow-[inset_0px_0px_0px_10px_#a6bfc2]">
+        <div className="py-10 min-h-[100vh]  shadow-[inset_0px_0px_0px_10px_wheat]">
           <h1 className="text-center font-bold text-[38px] text-[white] px-4">
             Which type of food do u like? 🍔
           </h1>
