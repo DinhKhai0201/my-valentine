@@ -1,5 +1,9 @@
 # MY VALENTINE
 
+## Demo
+![image](docs/demo.gif)
+## Preview site:  https://my-valentinee.vercel.app/
+
 ## Getting Started
 
 First, set up Telegram bot to receive notification:
