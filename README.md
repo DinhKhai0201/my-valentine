@@ -1,7 +1,7 @@
 # MY VALENTINE
 
 ## Demo
-![image](docs/demo.gif)
+<img src="docs/demo.gif" alt="demo" style="width:200px;"/>
 ## Preview site:  https://my-valentinee.vercel.app/
 
 ## Getting Started
