@@ -8,6 +8,7 @@
 ## Getting Started
 
 First, set up Telegram bot to receive notification:
+- Create a new `.env` file in the root of the folder
 - Create a new Telegram bot, obtain its key, and place it in `NEXT_PUBLIC_TELEGRAM_BOT_KEY` in `.env`.
 - Create a new Telegram group to receive notifications from the bot.
 - Add your Telegram bot to the group.
